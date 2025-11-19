@@ -35,4 +35,5 @@ public class MainController {
             //Mientras que los 4 coches no terminaron
 
         });
-    };}
+    }
+}
