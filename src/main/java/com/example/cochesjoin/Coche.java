@@ -20,7 +20,7 @@ public class Coche extends Thread{
 //Recorrer y determinar resultados cada minuto.
     @Override
     public void run(){
-int tiempo=0;
+        int tiempo=0;
         while(fin!=true){
         //Calculo velocidad media
             int velocidadMedia = (int) (Math.random() * velocidadMaxima);
@@ -38,17 +38,17 @@ int tiempo=0;
 
             int espacios=distanciaCircuito-distanciaRecorrida;
             if (espacios<0){espacios=0;};
-//Devolver el resultado tras un minuto?
+            //Devolver el resultado tras un minuto?
         System.out.println(nombre + " a velocidad media de " + velocidadMedia + "km/h tras "+ tiempo +" minutos de carrera recorrió  "+ distanciaRecorrida +" kilometros! Principio:" + ("=").repeat(distanciaRecorrida) +"💨🚗"+("_").repeat(espacios)+":Fin");
             //System.out.println("Tras "+ tiempo +" minuto de carrera:");
             //Comparar velocidad de cada coche
             //System.out.println(nombre+" recorrió "+ distanciaRecorrida + " y esta en la posición "+ posicion +"! ");
 
-if(distanciaRecorrida >= distanciaCircuito){
-    Carrera.ganadores(this);
-    break;
+            if(distanciaRecorrida >= distanciaCircuito){
+                Carrera.ganadores(this);
+                break;
 
-}
+            }
 
        }
 
