@@ -3,13 +3,19 @@ package com.example.cochesjoin;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+
+import javafx.scene.image.ImageView;
 
 public class MainController {
+    @FXML
+    private ImageView barrera;
     @FXML
     private Button buttonStart;
     @FXML
     private Label welcomeText;
-
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
@@ -26,6 +32,9 @@ public class MainController {
             Coche c4 = new Coche("Porsche 911 Turbo", 228, distancia);
 
             System.out.println("Ha empezado la carrera!");
+            comenzado=true;
+            animacionStart();
+
 
             c1.start();
             c2.start();
@@ -36,4 +45,27 @@ public class MainController {
 
         });
     }
+    private boolean comenzado=false;
+
+    private void animacionStart(){
+
+
+        fondoStart();
+    };
+    private void fondoStart(){
+        double barreraComienzo = barrera.getLayoutX();
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(50), event->{
+                    barrera.setLayoutX(barrera.getLayoutX()-30);
+                    if(barrera.getLayoutX()== (barreraComienzo -120)){
+                        barrera.setLayoutX(barreraComienzo);
+                    }
+                })
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE); // repeat forever
+        timeline.play();
+
+        comenzado = true;
+
+    };
 }
