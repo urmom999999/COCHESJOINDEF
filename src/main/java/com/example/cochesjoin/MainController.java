@@ -20,10 +20,10 @@ public class MainController {
     private void initialize() {
         buttonStart.setOnAction(event -> {
             final int distancia = 0;
-            Coche c1 = new Coche("Porche 959", 317, distancia);
-            Coche c2 = new Coche("Ferrari F40", 324, distancia);
-            Coche c3 = new Coche("RUF CTR Yellowbird", 340, distancia);
-            Coche c4 = new Coche("Ford RS200", 228, distancia);
+            Coche c1 = new Coche("Ferrari F40", 317, distancia);
+            Coche c2 = new Coche("Toyota Supra MK4", 324, distancia);
+            Coche c3 = new Coche("Subaru Impreza Sti", 340, distancia);
+            Coche c4 = new Coche("Porsche 911 Turbo", 228, distancia);
 
             System.out.println("Ha empezado la carrera!");
 
