@@ -8,7 +8,7 @@ public class Coche extends Thread{
     private final MainController controller;
 
     public static boolean fin = false;
-    private static final int distanciaCircuito=20;
+    private static final int distanciaCircuito=19;
 
 
     public Coche(String nombre, int velocidadMaxima,int distanciaRecorrida,MainController controller){
@@ -24,16 +24,16 @@ public class Coche extends Thread{
     public void run(){
         while(!fin){
         //Calculo velocidad media
-            int velocidadMedia = (int) (Math.random() * velocidadMaxima);
+            int velocidadMedia = (int) (Math.random() * (velocidadMaxima -50));
             try {
-                Thread.sleep(1000);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
 
             //Calcular distancia recorrida
-            double distanciaTramo=(velocidadMedia / 60.0 );
+            double distanciaTramo=(velocidadMedia / 100.0 );
             distanciaRecorrida += (int) distanciaTramo;
 //MOSTRAR POSICIÓN VISUALMENTE
             controller.actualizarPosicionCoche(nombre, distanciaRecorrida);

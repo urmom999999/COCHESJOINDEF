@@ -28,11 +28,11 @@ public class MainController {
     @FXML
     private ImageView porscheTurbo;
     @FXML
-    private Text textResulatados;
+    private Text textResultados;
 
     private List<Coche> coches = new ArrayList<>();
-    private boolean comenzado = false;
 
+    private boolean carreraActiva = false;
 
 
     @FXML
@@ -46,10 +46,10 @@ public class MainController {
         buttonStart.setOnAction(event -> {
 
             final int distancia = 0;
-            Coche c1 = new Coche("Ferrari F40", 310, distancia, this);
-            Coche c2 = new Coche("Toyota Supra MK4", 300, distancia, this);
-            Coche c3 = new Coche("Subaru Impreza Sti", 300, distancia, this);
-            Coche c4 = new Coche("Porsche 911 Turbo", 310, distancia, this);
+            Coche c1 = new Coche("Ferrari F40", 180, distancia, this);
+            Coche c2 = new Coche("Toyota Supra MK4", 180, distancia, this);
+            Coche c3 = new Coche("Subaru Impreza Sti", 180, distancia, this);
+            Coche c4 = new Coche("Porsche 911 Turbo", 180, distancia, this);
 //guardar
             coches.clear();
             coches.add(c1);
@@ -58,7 +58,7 @@ public class MainController {
             coches.add(c4);
 
             System.out.println("Ha empezado la carrera!");
-            comenzado = true;
+            carreraActiva = true;
             animacionStart();
 
 
@@ -76,7 +76,8 @@ public class MainController {
                     c3.join();
                     c4.join();
                     System.out.println("Fin!");
-                    resultadoFin();
+                    carreraActiva = false;
+                  //  resultadoFin();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -103,12 +104,12 @@ public class MainController {
         public void actualizarPosicionCoche(String nombreCoche, double distanciaRecorrida) {
             ImageView imagenCoche = obtenerImageViewPorNombre(nombreCoche);
             if (imagenCoche != null) {
-                double nuevaPosX = getPosicionInicial(nombreCoche) + (distanciaRecorrida * 50);
+                //Sin getPosicionInicial explota
+                double nuevaPosX = getPosicionInicial(nombreCoche) + (distanciaRecorrida * 40);
                 imagenCoche.setLayoutX(nuevaPosX);
             }
         }
-
-        private ImageView obtenerImageViewPorNombre(String nombreCoche) {
+         private ImageView obtenerImageViewPorNombre(String nombreCoche) {
             switch (nombreCoche) {
                 case "Ferrari F40": return ferrariF40;
                 case "Toyota Supra MK4": return toyotaSupra;
@@ -140,44 +141,23 @@ public class MainController {
             for (Coche coche : coches) {
                 if (coche.isAlive()) {
                     return false;
-                }
-            }
+                }}
             return true;
         }
-
-        private void resultadoFin() {
-            StringBuilder resultados = new StringBuilder("RESULTADOS FINALES:\n\n");
-
-            // Ordenar coches por posición (1º, 2º, 3º, 4º)
-            for (int posicion = 1; posicion <= 4; posicion++) {
-                for (Coche coche : coches) {
-                    if (coche.posicion == posicion) {
-                        String resultadoLinea = coche.nombre + " terminó en posición: " + coche.posicion + "!\n";
-                        resultados.append(resultadoLinea);
-                        break;
-                    }
-                }
-            }
-
-            // Actualizar el TextArea
-            if (textResulatados != null) {
-                javafx.application.Platform.runLater(() -> {
-                    textResulatados.setText(resultados.toString());
-                });
-            }
-        }
-
 //_____________________________________________________________________
 
-        public void agregarResultado (String mensaje) {
-        if (textResulatados != null) {
-            //Para Textarea
+    public void agregarResultado(String mensaje) {
+        if (textResultados != null) {
             Platform.runLater(() -> {
-                String textoActual = textResulatados.getText();
-                textResulatados.setText(textoActual + mensaje + "\n");
+                String textoActual = textResultados.getText();
+                if (textoActual == null || textoActual.isEmpty()) {
+                    textResultados.setText(mensaje);
+                } else {
+                    textResultados.setText(textoActual + "\n" + mensaje);
+                }
             });
         }
-        }
+    }
 
 
     private void animacionStart(){
@@ -187,13 +167,15 @@ public class MainController {
     };
     //FONDO=========
     private void fondoStart(){
+
         double barreraComienzo = barrera.getLayoutX();
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.millis(50), event->{
+                    if (carreraActiva) {
                     barrera.setLayoutX(barrera.getLayoutX()-30);
                     if(barrera.getLayoutX()<= (barreraComienzo -120)){
                         barrera.setLayoutX(barreraComienzo);
-                    }
+                    }}
                 })
         );
         timeline.setCycleCount(Timeline.INDEFINITE); //LOOP

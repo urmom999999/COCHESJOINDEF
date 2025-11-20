@@ -15,16 +15,16 @@
             <Image url="@FONDOCARRERA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="barrera" fitHeight="621.0" fitWidth="1695.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="barrera" fitHeight="711.0" fitWidth="1656.0" layoutX="-30.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@BARRERACOCHES.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="120.0" layoutY="606.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
-      <Button fx:id="buttonStart" layoutX="37.0" layoutY="633.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="164.0" style="-fx-background-color: GREEN; -fx-border-radius: 20;" text="START" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Button>
+      <ImageView fitHeight="392.0" fitWidth="1526.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@road.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="ferrariF40" fitHeight="67.0" fitWidth="213.0" layoutX="64.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@f40.png" />
@@ -45,6 +45,14 @@
             <Image url="@supra.png" />
          </image>
       </ImageView>
-      <Text fx:id="textResultados" layoutX="282.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="874.13671875" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="306.0" layoutY="503.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+      <Text fx:id="textResultados" fill="WHITE" layoutX="254.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="874.13671875">
+         <font>
+            <Font size="25.0" />
+         </font></Text>
+      <Button fx:id="buttonStart" layoutX="37.0" layoutY="529.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="164.0" style="-fx-background-color: GREEN; -fx-border-radius: 20;" text="START" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font></Button>
    </children>
 </AnchorPane>

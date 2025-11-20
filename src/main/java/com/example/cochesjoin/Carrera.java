@@ -7,7 +7,7 @@ public class Carrera {
         Carrera.controller = controller;
     }
 
-public static void ganadores(Coche coche) {
+public static synchronized void ganadores(Coche coche) {
     siguientePosicion++;
     coche.posicion=siguientePosicion;
     System.out.println(coche.nombre + " terminó la carrera en la posicion: "+ coche.posicion +"!");
