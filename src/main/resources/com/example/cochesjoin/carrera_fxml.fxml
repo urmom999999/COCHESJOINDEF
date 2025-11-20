@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cochesjoin.MainController">
    <children>
@@ -16,7 +17,7 @@
       </ImageView>
       <ImageView fx:id="barrera" fitHeight="621.0" fitWidth="1695.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image  url="@BARRERACOCHES.png" />
+            <Image url="@BARRERACOCHES.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="120.0" layoutY="606.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
@@ -24,25 +25,26 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <ImageView id="F40" fitHeight="67.0" fitWidth="213.0" layoutX="64.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ferrariF40" fitHeight="67.0" fitWidth="213.0" layoutX="64.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@f40.png" />
          </image>
       </ImageView>
-      <ImageView id="911" fitHeight="111.0" fitWidth="278.0" layoutX="26.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="porscheTurbo" fitHeight="111.0" fitWidth="278.0" layoutX="26.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@defTurbo.png" />
          </image>
       </ImageView>
-      <ImageView id="STI" fitHeight="111.0" fitWidth="255.0" layoutX="37.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="subaruImpreza" fitHeight="111.0" fitWidth="255.0" layoutX="37.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@STI.png" />
          </image>
       </ImageView>
-      <ImageView id="SUPRA" fitHeight="76.0" fitWidth="385.0" layoutX="48.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="toyotaSupra" fitHeight="76.0" fitWidth="385.0" layoutX="48.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@supra.png" />
          </image>
       </ImageView>
+      <Text fx:id="textResultados" layoutX="282.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="874.13671875" />
    </children>
 </AnchorPane>
